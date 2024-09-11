@@ -13,6 +13,7 @@ import {
   FaBell,
   FaUserCircle,
 } from "react-icons/fa";
+import Search from "./Search";
 
 const Sidebar = (props) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -46,20 +47,9 @@ const Sidebar = (props) => {
               <FaBars />
             </button>
             <FaYoutube className="text-red-600 text-3xl ml-2" />
-            <span className="ml-2 font-bold hidden md:inline">YouTube Clone</span>
+            <span className="ml-2 font-bold hidden md:inline">YouTube</span>
           </div>
-          <div className="flex-grow mx-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-full px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:border-blue-500"
-              />
-              <button className="absolute right-0 top-0 mt-3 mr-3">
-                <FaSearch />
-              </button>
-            </div>
-          </div>
+          <Search />
           <div className="flex items-center">
             <button className="p-2">
               <FaBell />
@@ -80,7 +70,7 @@ const Sidebar = (props) => {
         >
           {/* Menu Items */}
           <nav className="mt-4 space-y-2 ml-2">
-            <a href="#" className="flex items-center p-3 hover:bg-gray-100">
+            <a href="/" className="flex items-center p-3 hover:bg-gray-100">
               <FaHome className="mr-4" />
               <span className={`${isOpen ? "block" : "hidden"}`}>Home</span>
             </a>
@@ -129,6 +119,8 @@ const Sidebar = (props) => {
             isOpen && !isSmallScreen
               ? "ml-64"
               : isSmallScreen && !isOpen
+              ? "ml-0"
+              : isOpen && isSmallScreen
               ? "ml-0"
               : "ml-16"
           } p-3 transition-all w-full`}
