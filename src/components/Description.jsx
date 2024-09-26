@@ -2,9 +2,10 @@ import React from "react";
 import Linkify from "react-linkify";
 import { truncateString } from "../utils";
 
-const Description = ({ text }) => {
+const Description = ({ text, truncate }) => {
+  const truncateText = truncate ? truncateString(text, 30) : text;
   // Split text by line breaks
-  const textWithLineBreaks = text.split("\n").map((line, index) => (
+  const textWithLineBreaks = truncateText.split("\n").map((line, index) => (
     <React.Fragment key={index}>
       <Linkify
         componentDecorator={(decoratedHref, decoratedText, key) => (

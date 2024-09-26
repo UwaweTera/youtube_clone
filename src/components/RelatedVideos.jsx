@@ -4,11 +4,10 @@ import { formatNumber } from "../utils";
 import { PostedTime } from "../utils";
 
 const RelatedVideos = ({ video }) => {
-  console.log('related', video)
   const videoId = video?.id?.videoId || video?.id; 
 
   return (
-    <>
+    <>  
       <Link
         to={`/${videoId}`}
         key={videoId}

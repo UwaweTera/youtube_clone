@@ -49,7 +49,9 @@ const Sidebar = (props) => {
             <FaYoutube className="text-red-600 text-3xl ml-2" />
             <span className="ml-2 font-bold hidden md:inline">YouTube</span>
           </div>
+          <div className={`${isSmallScreen ? 'w-full' : 'w-1/2'}`}>
           <Search />
+          </div>
           <div className="flex items-center">
             <button className="p-2">
               <FaBell />

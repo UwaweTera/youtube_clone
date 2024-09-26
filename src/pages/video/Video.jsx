@@ -204,10 +204,6 @@ export const Video = () => {
                   <span className="mr-2 text-sm">
                     {PostedTime(video.snippet.publishedAt)}
                   </span>
-
-                  {/* {video.snippet.tags.map((tag, index) => (
-  <span key={index}>#{tag}</span>
-))} */}
                   <div
                     ref={descriptionRef}
                     className={`overflow-hidden transition-all duration-300 ${

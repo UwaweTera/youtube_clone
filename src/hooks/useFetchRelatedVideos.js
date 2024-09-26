@@ -3,8 +3,8 @@ import axios from "axios";
 
 export const useFetchRelatedVideos = (videoId, videoTitle) => {
   const [relatedVideos, setRelatedVideos] = useState([]);
-  const [nextPageToken, setNextPageToken] = useState(null);
   const [relatedLoading, setRelatedLoading] = useState(true);
+  const [nextPageToken, setNextPageToken] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
 
   const fetchRelatedVideos = useCallback(
@@ -21,13 +21,12 @@ export const useFetchRelatedVideos = (videoId, videoTitle) => {
               maxResults: 10,
               pageToken: isLoadMore ? nextPageToken : undefined,
               key: process.env.YOUTUBE_API_KEY,
-              q: videoTitle,
-              order: 'viewCount',
+              id: videoId,
+              order: "viewCount",
             },
           }
         );
         const relatedVideos = response.data.items;
-        console.log("relatedvideo", relatedVideos);
 
         const videoIds = relatedVideos
           .map((video) => video.id.videoId)

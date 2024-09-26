@@ -13,6 +13,7 @@ const Home = () => {
   const [nextPageToken, setNextPageToken] = useState(null);
   const [loadingMore, setLoadingMore] = useState(false);
 
+
   const observerRef = useRef();
 
   const fetchVideos = async (isLoadMore = false) => {
@@ -70,8 +71,7 @@ const Home = () => {
         observer.unobserve(observerRef.current);
       }
     };
-  }, [nextPageToken, loadingMore]);
-
+  }, [nextPageToken, loadingMore])
   return (
     <div>
       <Sidebar>
@@ -100,7 +100,7 @@ const Home = () => {
                     <img
                       alt={video.snippet.title}
                       className="rounded-lg mb-2 w-full h-full object-cover"
-                      src={video.snippet.thumbnails.medium.url}
+                      src={video.snippet.thumbnails.high.url}
                     />
                   </div>
                   <div className="flex p-2">
