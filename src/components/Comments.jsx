@@ -10,9 +10,14 @@ import { PiScissorsLight } from "react-icons/pi";
 import { IoIosMore } from "react-icons/io";
 import { MdOutlineOutlinedFlag } from "react-icons/md";
 
-
-
-const Comments = ({comments, video, openReplyId, openReportCommentId, toggleReply, toggleReportComment}) => {
+const Comments = ({
+  comments,
+  video,
+  openReplyId,
+  openReportCommentId,
+  toggleReply,
+  toggleReportComment,
+}) => {
   return (
     <div>
       <div className="my-5  ">
@@ -37,9 +42,9 @@ const Comments = ({comments, video, openReplyId, openReportCommentId, toggleRepl
             {comments.map((comment) => (
               <div
                 key={comment.id}
-                className="flex items-center justify-between space-x-2 mt-4"
+                className="flex items-start justify-between space-x-2 mt-4"
               >
-                <div className="flex items-start space-x-2 w-full">
+                <div className="flex items-start space-x-2 flex-grow">
                   <div className="avatar">
                     <div className="w-6 sm:w-8 rounded-full">
                       <img
@@ -52,7 +57,7 @@ const Comments = ({comments, video, openReplyId, openReportCommentId, toggleRepl
                     </div>
                   </div>
 
-                  <div className="text-sm  w-full">
+                  <div className="text-sm flex-grow">
                     <div className="flex items-center space-x-2">
                       <p>
                         {
@@ -69,14 +74,12 @@ const Comments = ({comments, video, openReplyId, openReportCommentId, toggleRepl
                         ago
                       </p>
                     </div>
-                    {/* <div>
-          {
-            comment.snippet.topLevelComment.snippet
-              .textDisplay
-          }
-        </div> */}
                     <p
-                      className="text-gray-600 mb-4 leading-relaxed"
+                      className="text-gray-600 mb-4 leading-relaxed break-words max-w-full overflow-hidden"
+                      style={{
+                        wordBreak: "break-word",
+                        overflowWrap: "break-word",
+                      }}
                       dangerouslySetInnerHTML={{
                         __html:
                           comment.snippet.topLevelComment.snippet.textDisplay,
